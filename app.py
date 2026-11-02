@@ -1,4 +1,4 @@
-
+import os
 from flask import Flask, jsonify, render_template_string
 
 app = Flask(__name__)
@@ -98,5 +98,4 @@ def home():
 @app.route('/results')
 def results():
     return jsonify(student)
-
-app.run(host='0.0.0.0', port=5000)
+app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
